@@ -1,0 +1,40 @@
+<div class="gallery">
+  <div class="wall">
+    <img class="wall__image" src="assets/images/wall-placeholder.svg" alt="Gallery wall" draggable="false" />
+
+    <button
+      *ngFor="let artwork of artworks"
+      type="button"
+      class="hotspot"
+      [class.hotspot--active]="hoveredId() === artwork.id"
+      [ngStyle]="hotspotStyle(artwork)"
+      (mouseenter)="onHoverEnter(artwork.id)"
+      (mouseleave)="onHoverLeave(artwork.id)"
+      (focus)="onHoverEnter(artwork.id)"
+      (blur)="onHoverLeave(artwork.id)"
+      (click)="open(artwork)"
+    >
+      <img class="hotspot__thumb" [src]="artwork.image" [alt]="artwork.title" draggable="false" />
+      <span class="hotspot__label">
+        <span class="hotspot__title">{{ artwork.title }}</span>
+        <span class="hotspot__artist">{{ artwork.artist }}, {{ artwork.year }}</span>
+      </span>
+    </button>
+  </div>
+</div>
+
+<div
+  class="lightbox"
+  *ngIf="openedArtwork() as artwork"
+  (click)="onBackdropClick($event)"
+>
+  <div class="lightbox__panel">
+    <button type="button" class="lightbox__close" (click)="close()" aria-label="Close">&times;</button>
+    <img class="lightbox__image" [src]="artwork.image" [alt]="artwork.title" />
+    <div class="lightbox__info">
+      <h2 class="lightbox__title">{{ artwork.title }}</h2>
+      <p class="lightbox__meta">{{ artwork.artist }} &middot; {{ artwork.year }}</p>
+      <p class="lightbox__description">{{ artwork.description }}</p>
+    </div>
+  </div>
+</div>

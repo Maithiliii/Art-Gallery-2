@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#242424"/>
+      <stop offset="55%" stop-color="#2f2f2f"/>
+      <stop offset="100%" stop-color="#1c1c1c"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d0d0d"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="floorSheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3a3a" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="42%" r="75%">
+      <stop offset="60%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.55"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1920" height="1080" fill="url(#wall)"/>
+
+  <!-- floor -->
+  <rect x="0" y="860" width="1920" height="220" fill="url(#floor)"/>
+  <rect x="0" y="860" width="1920" height="120" fill="url(#floorSheen)"/>
+  <rect x="0" y="856" width="1920" height="6" fill="#0a0a0a"/>
+
+  <!-- ceiling light track -->
+  <rect x="0" y="0" width="1920" height="10" fill="#151515"/>
+  <g fill="#3d3d3d">
+    <circle cx="374" cy="10" r="7"/>
+    <circle cx="758" cy="10" r="7"/>
+    <circle cx="1142" cy="10" r="7"/>
+    <circle cx="1526" cy="10" r="7"/>
+  </g>
+
+  <!-- soft spotlight pools above each frame position -->
+  <ellipse cx="374" cy="300" rx="260" ry="340" fill="url(#spot)"/>
+  <ellipse cx="758" cy="270" rx="260" ry="360" fill="url(#spot)"/>
+  <ellipse cx="1142" cy="285" rx="260" ry="350" fill="url(#spot)"/>
+  <ellipse cx="1526" cy="300" rx="260" ry="340" fill="url(#spot)"/>
+
+  <rect x="0" y="0" width="1920" height="1080" fill="url(#vignette)"/>
+</svg>
