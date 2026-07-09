@@ -1,6 +1,31 @@
+<div class="particles" aria-hidden="true">
+  <span
+    class="particle"
+    *ngFor="let p of particles"
+    [class.particle--white]="p.white"
+    [style.left.%]="p.left"
+    [style.top.%]="p.top"
+    [style.width.px]="p.size"
+    [style.height.px]="p.size"
+    [style.animation-duration.s]="p.duration"
+    [style.animation-delay.s]="p.delay"
+  ></span>
+</div>
+
+<button type="button" class="music-toggle" (click)="toggleMusic()">
+  {{ musicPlaying() ? 'Pause music' : 'Play music' }}
+</button>
+
+<header class="site-header">
+  <div class="site-header__content">
+    <h1 class="site-header__title">Leander's Art Gallery</h1>
+    <p class="site-header__subtitle">A Virtual Exhibition</p>
+  </div>
+</header>
+
 <div class="gallery">
   <div class="wall">
-    <img class="wall__image" src="assets/images/wall-placeholder.svg" alt="Gallery wall" draggable="false" />
+    <img class="wall__image" src="assets/images/ArtGal.png" alt="Gallery wall" draggable="false" />
 
     <button
       *ngFor="let artwork of artworks"
@@ -17,7 +42,6 @@
       <img class="hotspot__thumb" [src]="artwork.image" [alt]="artwork.title" draggable="false" />
       <span class="hotspot__label">
         <span class="hotspot__title">{{ artwork.title }}</span>
-        <span class="hotspot__artist">{{ artwork.artist }}, {{ artwork.year }}</span>
       </span>
     </button>
   </div>
@@ -33,7 +57,6 @@
     <img class="lightbox__image" [src]="artwork.image" [alt]="artwork.title" />
     <div class="lightbox__info">
       <h2 class="lightbox__title">{{ artwork.title }}</h2>
-      <p class="lightbox__meta">{{ artwork.artist }} &middot; {{ artwork.year }}</p>
       <p class="lightbox__description">{{ artwork.description }}</p>
     </div>
   </div>
